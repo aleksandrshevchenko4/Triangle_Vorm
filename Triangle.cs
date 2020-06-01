@@ -106,5 +106,19 @@ namespace Triangle
                 else return true;
             }
         }
+        public string TriangleType() // типы треугольников
+        {
+            {
+                if ((a == b) || (b == c) || (a == c))
+                {
+                    return "Равносторонний";
+                }
+                else if ((a == b) && (b == c) && (c == a))
+                {
+                    return "Равнобедренный";
+                }
+                else return "Разносторонний";
+            }
+        }
     }
 }
