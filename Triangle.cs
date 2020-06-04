@@ -62,11 +62,11 @@ namespace Triangle
             s = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
             return s;
         }
-        public double Height()
+        public double Height() // вычисление высоты типо double
         {
             double p = SemiPerimeter();
-            double h = 2 * Math.Sqrt(p * (p - a) * (p - b) * (p - c)) / a;
-            return h;
+            double h = 2 * Math.Sqrt(p * (p - a) * (p - b) * (p - c)) / a; // вычисление
+            return h; // возврат
         }
         public double GetSetA // свойство позволяющее установить либо изменить значение стороны а
         {
@@ -75,21 +75,21 @@ namespace Triangle
             set // меняем
             { a = value; }
         }
-        public double GetSetB
+        public double GetSetB // свойство позволяющее установить либо изменить значение стороны b
         {
             get
             { return b; }
             set
             { b = value; }
         }
-        public double GetSetC
+        public double GetSetC // свойство позволяющее установить либо изменить значение стороны c
         {
             get
             { return c; }
             set
             { c = value; }
         }
-        public double GetSetH
+        public double GetSetH // свойство позволяющее установить либо изменить значение стороны h
         {
             get
             { return h; }
