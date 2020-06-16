@@ -1,141 +1,73 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Triangle_Vorm
+namespace WindowsFormsApp1
 {
-    class Triangle
+    public partial class Form1 : Form
     {
-        public double a;
-        public double b;
-        public double c;
-        public double h;
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        private void Run_button_Click (object sender, EventArgs e)
+        {
+            double a, b, c;
+            a = Convert.ToDouble(txtA.Text);
+            b = Convert.ToDouble(txtB.Text);
+            c = Convert.ToDouble(txtC.Text);
 
-        public Triangle(double A, double B, double C)
-        {
-            a = A;
-            b = B;
-            c = C;
-            h = 0;
-        }
-        public Triangle(double A, double B, double C, double H)
-        {
-            a = A;
-            b = B;
-            c = C;
-            h = H;
-        }
-        public Triangle()
-        {
-            a = 0;
-            b = 0;
-            c = 0;
-            h = 0;
-        }
+            Triangle triangle = new Triangle(a, b, c);
 
-        public string outputA() 
-        {
-            return Convert.ToString(a);
+            listView1.Items.Add("Сторона а");
+            listView1.Items.Add("Сторона b");
+            listView1.Items.Add("Сторона c");
+            listView1.Items.Add("Высота  h");
+            listView1.Items.Add("Периметр");
+            listView1.Items.Add("Площадь");
+            listView1.Items.Add("Полупериметр");
+            listView1.Items.Add("Существует?");
+            listView1.Items.Add("Спецификатор");
+
+            listView1.Items[0].SubItems.Add(triangle.outputA());
+            listView1.Items[1].SubItems.Add(triangle.outputB());
+            listView1.Items[2].SubItems.Add(triangle.outputC());
+            listView1.Items[3].SubItems.Add(Convert.ToString(triangle.Perimeter()));
+            listView1.Items[4].SubItems.Add(Convert.ToString(triangle.Surface()));
+            listView1.Items[5].SubItems.Add(Convert.ToString(triangle.SemiPerimeter()));
+            if (triangle.ExistTriangle) { listView1.Items[6].SubItems.Add("Существует"); }
+            else listView1.Items[6].SubItems.Add("Не существует");
         }
-        public string outputB()
+        private void Form1_Load(object sender, EventArgs e)
         {
-            return Convert.ToString(b); 
-        }
-        public string outputC() 
-        {
-            return Convert.ToString(c);
-        }
-        public string outputH()
-        {
-            return Convert.ToString(h);
-        }
-        public double Perimeter() 
-        {
-            double p = 0;
-            p = a + b + c; 
-            return p; 
-        }
-        public double SemiPerimeter()
-        {
-            double p = 0;
-            p = (a + b + c) / 2;
-            return p;
-        }
-        public double Height()
-        {
-            double p = SemiPerimeter();
-            double h = 2 * Math.Sqrt(p * (p - a) * (p - b) * (p - c)) / a;
-            return h;
+
         }
 
-        public double Surface() 
+        private void txtA_TextChanged(object sender, EventArgs e)
         {
-            double s = 0;
-            double p = 0;
-            p = (a + b + c) / 2;
-            s = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
-            return s;
+
         }
 
-        public double GetSetA 
+        private void label1_Click(object sender, EventArgs e)
         {
-            get 
-            {return a;}
-            set 
-            {a = value;}
+
         }
 
-        public double GetSetB 
+        private void label2_Click(object sender, EventArgs e)
         {
-            get
-            {return b;}
-            set
-            {b = value;}
+            
         }
 
-        public double GetSetC 
+        private void Run_button_DoubleClick(object sender, MouseEventArgs e)
         {
-            get
-            {return c;}
-            set
-            {c = value;}
+            Form2 from = new Form2();
+            from.Show();
         }
-        public double GetSetH
-        {
-            get
-            { return h; }
-            set
-            { h = value; }
-        }
-
-        public bool ExistTriangle 
-        {
-            get
-            {
-                if ((a < b + c) && (b < a + c) && (c < a + b))
-                    return false;
-                else return true;
-            }
-        }
-
-        public string TypeOfTirangle
-        {
-            get
-            {
-                if ((a == b) || (b == c) || (a == c))
-                {
-                    return "Равнобедренный треугольник";
-                }
-                else if ((a == b) && (b == c) && (c == a))
-                { 
-                    return "Равносторонний треугольник";
-                }
-                else return "Разносторонний треугольник";
-            }
-        }
-
     }
 }
