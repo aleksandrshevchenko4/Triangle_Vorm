@@ -110,11 +110,11 @@ namespace Triangle
             {
                 if ((a == b) || (b == c) || (a == c))
                 {
-                    return "Равносторонний";
+                    return "Равнобедренный";
                 }
                 else if ((a == b) && (b == c) && (c == a))
                 {
-                    return "Равнобедренный";
+                    return "Равносторонний";
                 }
                 else return "Разносторонний";
             }
