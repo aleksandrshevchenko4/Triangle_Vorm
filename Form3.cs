@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace Triangle
 {
-    public partial class Form2 : Form
+    public partial class Form3 : Form
     {
-        private void Form2_Load(object sender, EventArgs e)
+        public Form3()
         {
-
-        }
-
-        private void Run_button_DoubleClick(object sender, EventArgs e)
-        {
-
+            InitializeComponent();
         }
     }
 }
