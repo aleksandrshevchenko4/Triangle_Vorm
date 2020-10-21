@@ -13,9 +13,16 @@ namespace WindowsFormsApp1
     public partial class Form2 : Form
     {
 
-        public Form2()
+        
+
+        private void Form2_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
+
+        }
+
+        private void Run_button_DoubleClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

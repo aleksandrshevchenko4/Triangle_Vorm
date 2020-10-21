@@ -15,10 +15,12 @@ namespace Triangle
         public string answer;
         public Triangle(double A, double B, double C)
         {
+
             a = A;
             b = B;
             c = C;
         }
+
         public Triangle(double A, double B, double C, double H)
         {
             a = A;
@@ -26,6 +28,7 @@ namespace Triangle
             c = C;
             h = H;
         }
+
         public string outputA() // выводим сторону а, данный метод возвращает строковое значение
         {
             return Convert.ToString(a); // a - ссылка на внутренее поле обьекта класса
@@ -41,6 +44,7 @@ namespace Triangle
         public string outputH()
         {
             return Convert.ToString(h);
+
         }
         public double Perimeter() // сумма всех сторон типо double
         {
@@ -54,6 +58,7 @@ namespace Triangle
             p = (a + b + c) / 2; // вычисление
             return p; // возврат
         }
+
         public double Surface() // аналогично периметру
         {
             double s = 0;
@@ -62,12 +67,14 @@ namespace Triangle
             s = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
             return s;
         }
-        public double Height() // вычисление высоты типо double
+        public double Height()
         {
             double p = SemiPerimeter();
-            double h = 2 * Math.Sqrt(p * (p - a) * (p - b) * (p - c)) / a; // вычисление
-            return h; // возврат
+            double h = 2 * Math.Sqrt(p * (p - a) * (p - b) * (p - c)) / a;
+            return h;
         }
+
+
         public double GetSetA // свойство позволяющее установить либо изменить значение стороны а
         {
             get //устанавливаем
@@ -75,49 +82,44 @@ namespace Triangle
             set // меняем
             { a = value; }
         }
-        public double GetSetB // свойство позволяющее установить либо изменить значение стороны b
-        {
-            get
-            { return b; }
-            set
-            { b = value; }
+        public double GetSetB {
+            get { return b; }
+            set { b = value; }
         }
-        public double GetSetC // свойство позволяющее установить либо изменить значение стороны c
-        {
-            get
-            { return c; }
-            set
-            { c = value; }
+        public double GetSetC {
+            get { return c; }
+            set { c = value; }
         }
-        public double GetSetH // свойство позволяющее установить либо изменить значение стороны h
-        {
-            get
-            { return h; }
-            set
-            { h = value; }
+        public double GetSetH {
+            get { return h; }
+            set { h = value; }
         }
         public bool ExistTriangle // свойство позволяющее установить, существует ои треугольник с задаными сторонами
         {
-            get
-            {
-                if ((a < b + c) && (b < a + c) && (c < a + b)) //сумма 2 сторон должна быть больше третьей
-                    return true;
-                else return false;
+            get {
+                if ((a > b + c) && (b > a + c) && (c > a + b)) //сумма 2 сторон должна быть больше третьей
+                    return false;
+                else return true;
             }
         }
+
+
         public string TriangleType() // типы треугольников
         {
+
+            if ((a == b) && (b == c) && (c == a))
             {
-                if ((a == b) || (b == c) || (a == c))
-                {
-                    return "Равнобедренный";
-                }
-                else if ((a == b) && (b == c) && (c == a))
-                {
-                    return "Равносторонний";
-                }
-                else return "Разносторонний";
+                answer = "Равносторонний";
             }
+            else if ((a == b) || (b == c) || (a == c))
+            {
+                answer = "Равнобедренный";
+            }
+            else
+            {
+                answer = "Разносторонний";
+            }
+            return answer;
         }
     }
 }
