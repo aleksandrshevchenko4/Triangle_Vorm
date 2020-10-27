@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Triangle;
 
 namespace WindowsFormsApp1
 {
@@ -31,7 +32,7 @@ namespace WindowsFormsApp1
                 b = Convert.ToDouble(txtB.Text);
                 c = Convert.ToDouble(txtC.Text);
             }
-            Triangle triangle = new Triangle(a, b, c);
+            var triangle = new Triangle(a, b, c);
             listView1.Items.Add("Сторона а");
             listView1.Items.Add("Сторона b");
             listView1.Items.Add("Сторона c");
@@ -72,8 +73,13 @@ namespace WindowsFormsApp1
 
         private void Run_button_DoubleClick(object sender, MouseEventArgs e)
         {
-            Form2 from = new Form2();
+            Form3 from = new Form3();
             from.Show();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
