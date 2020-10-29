@@ -33,94 +33,90 @@ namespace triangl
             this.Height = 700;
             this.Width = 800;
             this.Text = "Triangle";
-            this.BackColor = Color.BlanchedAlmond;
-           // this.Icon = new Icon("triangle.ico");
+            this.BackColor = Color.White;
             list_box = new ListBox();
             list_box.Location = new Point(10, 10);
             list_box.Size = new Size(350, 160);
-            list_box.Items.Add("Таблица с значением");
-            list_box.BackColor = Color.Tan;
+            list_box.Items.Add("Таблица сo значением");
+            list_box.BackColor = Color.White;
 
-            btn = new Button();//кнопка запуск
-            btn.Location = new Point(500, 310);
+            btn = new Button();
+            btn.Location = new Point(450, 150);
             btn.Size = new Size(110, 40);
             btn.Click += Btn_Click;
             btn.Text = "Запуск";
-            btn.BackColor = Color.LightPink;
-            btn.ForeColor = Color.Red;
+            btn.BackColor = Color.Gray;
+            btn.ForeColor = Color.Black;
 
-            lblA = new Label();//label Стороны А
+
+
+            lblA = new Label();
             lblA.Size = new Size(70, 30);
-            lblA.Location = new Point(50, 180);
+            lblA.Location = new Point(400, 10);
             lblA.Text = "Сторона А";
             lblA.ForeColor = Color.Black;
             lblA.BackColor = Color.White;
 
-            txtA = new TextBox();//txt ящик
+            txtA = new TextBox();
             txtA.Size = new Size(100, 30);
-            txtA.Location = new Point(130, 180);
-            txtA.BackColor = Color.SeaShell;
+            txtA.Location = new Point(470, 10);
+            txtA.BackColor = Color.White;
 
-            lblB = new Label();//label Стороны B
+            lblB = new Label();
             lblB.Size = new Size(70, 30);
-            lblB.Location = new Point(50, 210);
+            lblB.Location = new Point(400, 40);
             lblB.Text = "Сторона B";
             lblB.ForeColor = Color.Black;
             lblB.BackColor = Color.White;
 
-            txtB = new TextBox();//txt ящик
-            txtB.Location = new Point(130, 210);
-            txtB.BackColor = Color.SeaShell;
+            txtB = new TextBox();
+            txtB.Location = new Point(470, 40);
+            txtB.BackColor = Color.White;
 
-            lblC = new Label();//label Стороны C
+            lblC = new Label();
             lblC.Size = new Size(70, 30);
-            lblC.Location = new Point(50, 240);
+            lblC.Location = new Point(400, 70);
             lblC.Text = "Сторона C";
             lblC.ForeColor = Color.Black;
             lblC.BackColor = Color.White;
 
-            txtC = new TextBox();//txt ящик
-            txtC.Location = new Point(130, 240);
-            txtC.BackColor = Color.SeaShell;
+            txtC = new TextBox();
+            txtC.Location = new Point(470, 70);
+            txtC.BackColor = Color.White;
 
-            lblH = new Label();//label Стороны H
+            lblH = new Label();
             lblH.Size = new Size(70, 30);
-            lblH.Location = new Point(50, 270);
+            lblH.Location = new Point(400, 100);
             lblH.Text = "Высота H";
             lblH.ForeColor = Color.Black;
             lblH.BackColor = Color.White;
 
-            txtH = new TextBox();//txt ящик
-            txtH.Location = new Point(130, 270);
-            txtH.BackColor = Color.SeaShell;
+            txtH = new TextBox();
+            txtH.Location = new Point(470, 100);
+            txtH.BackColor = Color.White;
 
-            //pic3 = new PictureBox();//PixBox
-            //pic3.Image = Image.FromFile("tro.gif");
-            //pic3.Location = new Point(410, 310);
-            //pic3.Size = new Size(300, 300);
-            //pic3.SizeMode = PictureBoxSizeMode.Zoom;
-            //pic3.BorderStyle = BorderStyle.FixedSingle;
+
 
             r2 = new RadioButton();
             r2.Text = "Показать данные";
-            r2.Location = new Point(350, 10);
+            r2.Location = new Point(20, 190);
             r2.CheckedChanged += new EventHandler(Radiobuttons_Changed);
             Controls.Add(r2);
 
             r3 = new RadioButton();
             r3.Text = "Скрыть данные";
-            r3.Location = new Point(350, 30);
+            r3.Location = new Point(20, 210);
             r3.CheckedChanged += new EventHandler(Radiobuttons_Changed);
             Controls.Add(r3);
 
-            pic1 = new PictureBox();//PixBox
+            pic1 = new PictureBox();
             pic1.Image = Image.FromFile("tup.png");
             pic1.Location = new Point(10, 450);
             pic1.Size = new Size(100, 100);
             pic1.SizeMode = PictureBoxSizeMode.Zoom;
             pic1.BorderStyle = BorderStyle.FixedSingle;
 
-            pic2 = new PictureBox();//PixBox
+            pic2 = new PictureBox();
             pic2.Image = Image.FromFile("ostr.png");
             pic2.Location = new Point(100, 450);
             pic2.Size = new Size(100, 100);
@@ -137,9 +133,9 @@ namespace triangl
 
 
             Panel panel1 = new Panel();
-            panel1.Location = new Point(410, 20);
+            panel1.Location = new Point(150, 190);
             panel1.Size = new Size(195, 200);
-            panel1.BackColor = Color.WhiteSmoke;
+            panel1.BackColor = Color.White;
 
             gp = panel1.CreateGraphics();
 
@@ -164,8 +160,6 @@ namespace triangl
             Controls.Add(pic2);
             Controls.Add(pic4);
             Controls.Add(pic3);
-            /*Controls.Add(radio1);
-            Controls.Add(radio2);*/
             Controls.Add(panel1);
             Controls.Add(box_btn);
             Controls.Add(box_lbl);
@@ -269,38 +263,6 @@ namespace triangl
             if (triangle.ExistTriangle) { list_box.Items.Add("Существует?  Существует"); }
             else list_box.Items.Add("Существует?  Не существует");
             list_box.Items.Add("Спецификатор:" + " " + triangle.TypeOfTriangle());
-            gp.Clear(Color.White);
-            if (triangle.TypeOfTriangle() == "остроугольный")
-            {
-                Point p1 = new Point(60, 110);
-                Point p2 = new Point(150, 110);
-                Point p3 = new Point(100, 20);
-
-                gp.DrawLine(p, p1, p2);
-                gp.DrawLine(p, p2, p3);
-                gp.DrawLine(p, p3, p1);
-            }
-            else if (triangle.TypeOfTriangle() == "тупоугольный")
-            {
-                Point p1 = new Point(100, 110);
-                Point p2 = new Point(150, 110);
-                Point p3 = new Point(75, 30);
-
-                gp.DrawLine(p, p1, p2);
-                gp.DrawLine(p, p2, p3);
-                gp.DrawLine(p, p3, p1);
-            }
-            else if (triangle.TypeOfTriangle() == "прямоугольный")
-            {
-                Point p1 = new Point(70, 160);
-                Point p2 = new Point(157, 30);
-                Point p3 = new Point(70, 30);
-
-                gp.DrawLine(p, p1, p2);
-                gp.DrawLine(p, p2, p3);
-                gp.DrawLine(p, p3, p1);
-            }
-
         }
     }
 }

@@ -9,11 +9,11 @@ namespace Triangle
 {
     class Triangl
     {
-        public double a; // первая сторона
-        public double b; // вторая сторона
-        public double c; // третья сторона
-        public double h; // высота
-        public string answer;// тип треугольника
+        public double a; 
+        public double b; 
+        public double c; 
+        public double h; 
+        public string answer;
         public Triangl(double A, double B, double C)
         {
             a = A;
@@ -32,9 +32,9 @@ namespace Triangle
             b = B;
             h = H;
         }
-        public string outputA() // выводим сторону а, данный метод возвращает строковое значение
+        public string outputA()
         {
-            return Convert.ToString(a); // a - ссылка на внутренее поле обьекта класса
+            return Convert.ToString(a);
         }
         public string outputB()
         {
@@ -48,7 +48,7 @@ namespace Triangle
         {
             return Convert.ToString(h);
         }
-        public double HeightOfTriangle()//нахождение высоты
+        public double HeightOfTriangle()
         {
             double p;
             if (a < 0 || b < 0 || c < 0)
@@ -80,7 +80,7 @@ namespace Triangle
             throw new NotImplementedException();
         }
 
-        public double AreaOfTriangle() // нахождение площади
+        public double AreaOfTriangle()
         {
 
             double S;
@@ -109,7 +109,7 @@ namespace Triangle
             throw new NotImplementedException();
         }
 
-        public double Perimeter() // сумма всех сторон типо double
+        public double Perimeter() 
         {
             double p;
             if (a < 0 || b < 0 || c < 0)
@@ -120,8 +120,8 @@ namespace Triangle
             {
                 if (ExistTriangle)
                 {
-                    p = a + b + c; // вычисление
-                    return p; // возврат
+                    p = a + b + c; 
+                    return p; 
                 }
                 else
                 {
@@ -129,11 +129,11 @@ namespace Triangle
                 }
             }
         }
-        public double HalfPerimeter() // полупериметр
+        public double HalfPerimeter()
         {
             return Perimeter() / 2;
         }
-        public double Surface() // Площадь
+        public double Surface()
         {
             double s;
             double p;
@@ -155,11 +155,11 @@ namespace Triangle
                 }
             }
         }
-        public double GetSetA // свойство позволяющее установить либо изменить значение стороны а
+        public double GetSetA 
         {
-            get //устанавливаем
+            get
             { return a; }
-            set // меняем
+            set 
             { a = value; }
         }
         public double GetSetB
@@ -176,14 +176,14 @@ namespace Triangle
             set
             { c = value; }
         }
-        public bool ExistTriangle // свойство позволяющее установить, существует ли треугольник с задаными сторонами
+        public bool ExistTriangle
         {
             get
             {
                 if ((a < b + c) && (b < a + c) && (c < a + b))
                 {
                     return true;
-                } //сумма 2 сторон должна быть больше третьей
+                } 
                 else if (a < 0 || b < 0 || c < 0)
                 {
                     return false;
@@ -191,7 +191,7 @@ namespace Triangle
                 else return false;
             }
         }
-        public bool EquilateralTriangle // выяснение равносторонний треугольник
+        public bool EquilateralTriangle
         {
 
             get
@@ -201,7 +201,7 @@ namespace Triangle
                 else return false;
             }
         }
-        public string TypeOfTriangle()//определение типа треугольника
+        public string TypeOfTriangle()
         {
             if (a < 0 || b < 0 || c < 0)
             {
@@ -233,20 +233,20 @@ namespace Triangle
 
             }
         }
-        public string ImageType()// изменение картинки от TypeOfTriangle
+        public string ImageType()
         {
             string image = "";
-            if (answer == "Прямоугольный") //проверка условие
+            if (answer == "Прямоугольный")
             {
-                image = @"C:\Users\opilane\source\repos\Triangle_Vorm\kartinki\pramougolni.jpg";
+                image = @"..\..\image\prjam.png";
             }
-            if (answer == "Остроугольный")// проверка условия
+            if (answer == "Остроугольный")
             {
-                image = @"C:\Users\opilane\source\repos\Triangle_Vorm\kartinki\ostrougolnik.jpg";
+                image = @"..\..\image\ostr.png";
             }
-            if (answer == "Тупоугольный")//// проверка условия
+            if (answer == "Тупоугольный")
             {
-                image = @"C:\Users\opilane\source\repos\Triangle_Vorm\kartinki\typougolnik.jpg";
+                image = @"..\..\image\tup.png";
             }
             return image;
         }
