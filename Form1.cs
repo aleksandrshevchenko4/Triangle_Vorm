@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using triangl;
 using Triangle;
 
 namespace WindowsFormsApp1
@@ -32,7 +33,7 @@ namespace WindowsFormsApp1
                 b = Convert.ToDouble(txtB.Text);
                 c = Convert.ToDouble(txtC.Text);
             }
-            var triangle = new Triangle(a, b, c);
+            var triangle = new Triangl(a, b, c);
             listView1.Items.Add("Сторона а");
             listView1.Items.Add("Сторона b");
             listView1.Items.Add("Сторона c");
