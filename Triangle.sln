@@ -5,6 +5,13 @@ VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triangle", "Triangle.csproj", "{4556FD5A-9C4C-4D15-8EE4-40CC0E1CF2E7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "image", "image", "{46F57055-6A7C-410C-9134-E7CFC01EEC98}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Desktop\image\ostr.png = ..\..\..\Desktop\image\ostr.png
+		..\..\..\Desktop\image\prjam.png = ..\..\..\Desktop\image\prjam.png
+		..\..\..\Desktop\image\tup.png = ..\..\..\Desktop\image\tup.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

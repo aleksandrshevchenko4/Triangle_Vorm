@@ -30,7 +30,7 @@ namespace triangl
         {
 
 
-            this.Height = 700;
+            this.Height = 600;
             this.Width = 800;
             this.Text = "Triangle";
             this.BackColor = Color.White;
@@ -111,14 +111,14 @@ namespace triangl
 
             pic1 = new PictureBox();
             pic1.Image = Image.FromFile("tup.png");
-            pic1.Location = new Point(10, 450);
+            pic1.Location = new Point(400, 200);
             pic1.Size = new Size(100, 100);
             pic1.SizeMode = PictureBoxSizeMode.Zoom;
             pic1.BorderStyle = BorderStyle.FixedSingle;
 
             pic2 = new PictureBox();
             pic2.Image = Image.FromFile("ostr.png");
-            pic2.Location = new Point(100, 450);
+            pic2.Location = new Point(500, 200);
             pic2.Size = new Size(100, 100);
             pic2.SizeMode = PictureBoxSizeMode.Zoom;
             pic2.BorderStyle = BorderStyle.FixedSingle;
@@ -126,7 +126,7 @@ namespace triangl
 
             pic4 = new PictureBox();
             pic4.Image = Image.FromFile("prjam.png");
-            pic4.Location = new Point(200, 450);
+            pic4.Location = new Point(600, 200);
             pic4.Size = new Size(100, 100);
             pic4.SizeMode = PictureBoxSizeMode.Zoom;
             pic4.BorderStyle = BorderStyle.FixedSingle;

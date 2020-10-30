@@ -238,15 +238,15 @@ namespace Triangle
             string image = "";
             if (answer == "Прямоугольный")
             {
-                image = @"..\..\image\prjam.png";
+                image = @"..\image\prjam.png";
             }
             if (answer == "Остроугольный")
             {
-                image = @"..\..\image\ostr.png";
+                image = @"..\image\ostr.png";
             }
             if (answer == "Тупоугольный")
             {
-                image = @"..\..\image\tup.png";
+                image = @"..\image\tup.png";
             }
             return image;
         }
