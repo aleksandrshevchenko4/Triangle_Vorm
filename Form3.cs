@@ -16,10 +16,10 @@ namespace triangl
     public partial class Form3 : Form
     {
         ListBox list_box;
-        Button btn;
+        Button btn, btn1, btn2, btn3;
         Label lblA, lblB, lblC, lblH;
         TextBox txtA, txtB, txtC, txtH;
-        PictureBox pic1, pic2, pic4, pic3;
+        PictureBox pic1, pic2, pic3, pic4;
         RadioButton r1,r2,r3;
         Graphics gp;
         CheckBox box_lbl, box_btn;
@@ -48,7 +48,26 @@ namespace triangl
             btn.BackColor = Color.Gray;
             btn.ForeColor = Color.Black;
 
+            btn1 = new Button();
+            btn1.Location = new Point(10, 260);
+            btn1.Size = new Size(100, 70);
+            btn1.Click += Btn1_Click;
+            btn1.Text = "Остроугольный";
+            Controls.Add(btn1);
 
+            btn2 = new Button();
+            btn2.Location = new Point(10, 330);
+            btn2.Size = new Size(100, 70);
+            btn2.Click += Btn2_Click;
+            btn2.Text = "Равнобедреный";
+            Controls.Add(btn2);
+
+            btn3 = new Button();
+            btn3.Location = new Point(10, 400);
+            btn3.Size = new Size(100, 70);
+            btn3.Click += Btn3_Click;
+            btn3.Text = "Прямоугольный";
+            Controls.Add(btn3);
 
             lblA = new Label();
             lblA.Size = new Size(70, 30);
@@ -95,8 +114,6 @@ namespace triangl
             txtH.Location = new Point(470, 100);
             txtH.BackColor = Color.White;
 
-
-
             r2 = new RadioButton();
             r2.Text = "Показать данные";
             r2.Location = new Point(20, 190);
@@ -111,26 +128,32 @@ namespace triangl
 
             pic1 = new PictureBox();
             pic1.Image = Image.FromFile("tup.png");
-            pic1.Location = new Point(10, 450);
+            pic1.Location = new Point(10, 500);
             pic1.Size = new Size(100, 100);
             pic1.SizeMode = PictureBoxSizeMode.Zoom;
             pic1.BorderStyle = BorderStyle.FixedSingle;
 
             pic2 = new PictureBox();
             pic2.Image = Image.FromFile("ostr.png");
-            pic2.Location = new Point(100, 450);
+            pic2.Location = new Point(100, 500);
             pic2.Size = new Size(100, 100);
             pic2.SizeMode = PictureBoxSizeMode.Zoom;
             pic2.BorderStyle = BorderStyle.FixedSingle;
 
+            pic3 = new PictureBox();
+            pic3.Image = new Bitmap(@"..\..\image\tr.png");
+            pic3.Location = new Point(350, 300);
+            pic3.Size = new Size(250, 250);
+            pic3.SizeMode = PictureBoxSizeMode.Zoom;
+            pic3.BorderStyle = BorderStyle.Fixed3D;
+            this.Controls.Add(pic3);
 
             pic4 = new PictureBox();
             pic4.Image = Image.FromFile("prjam.png");
-            pic4.Location = new Point(200, 450);
+            pic4.Location = new Point(200, 500);
             pic4.Size = new Size(100, 100);
             pic4.SizeMode = PictureBoxSizeMode.Zoom;
             pic4.BorderStyle = BorderStyle.FixedSingle;
-
 
             Panel panel1 = new Panel();
             panel1.Location = new Point(150, 190);
@@ -158,12 +181,44 @@ namespace triangl
             Controls.Add(txtH);
             Controls.Add(pic1);
             Controls.Add(pic2);
-            Controls.Add(pic4);
             Controls.Add(pic3);
+            Controls.Add(pic4);
             Controls.Add(panel1);
             Controls.Add(box_btn);
             Controls.Add(box_lbl);
             Controls.Add(r1);
+        }
+
+        private void Btn1_Click(object sender, EventArgs e)
+        {
+            gp.Clear(Color.White);
+            Point p1 = new Point(60, 5);
+            Point p2 = new Point(150, 5);
+            Point p3 = new Point(100, 30);
+            gp.DrawLine(p, p1, p2);
+            gp.DrawLine(p, p2, p3);
+            gp.DrawLine(p, p3, p1);
+        }
+
+        private void Btn2_Click(object sender, EventArgs e)
+        {
+            gp.Clear(Color.White);
+            Point p1 = new Point(100, 100);
+            Point p2 = new Point(140, 100);
+            Point p3 = new Point(120, 30);
+            gp.DrawLine(p, p1, p2);
+            gp.DrawLine(p, p2, p3);
+            gp.DrawLine(p, p3, p1);
+        }
+        private void Btn3_Click(object sender, EventArgs e)
+        {
+            gp.Clear(Color.White);
+            Point p1 = new Point(70, 5);
+            Point p2 = new Point(157, 5);
+            Point p3 = new Point(70, 30);
+            gp.DrawLine(p, p1, p2);
+            gp.DrawLine(p, p2, p3);
+            gp.DrawLine(p, p3, p1);
         }
 
 
