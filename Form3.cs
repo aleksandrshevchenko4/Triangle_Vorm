@@ -52,14 +52,14 @@ namespace triangl
             btn1.Location = new Point(10, 260);
             btn1.Size = new Size(100, 70);
             btn1.Click += Btn1_Click;
-            btn1.Text = "Остроугольный";
+            btn1.Text = "Тупоугольный";
             Controls.Add(btn1);
 
             btn2 = new Button();
             btn2.Location = new Point(10, 330);
             btn2.Size = new Size(100, 70);
             btn2.Click += Btn2_Click;
-            btn2.Text = "Равнобедреный";
+            btn2.Text = "Остроугольный";
             Controls.Add(btn2);
 
             btn3 = new Button();
