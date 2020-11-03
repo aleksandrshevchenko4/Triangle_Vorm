@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +24,7 @@ namespace triangl
         Graphics gp;
         CheckBox box_lbl, box_btn;
         Pen p = new Pen(Brushes.Red, 2);
-        double a, b, c, h;
+        double a, b, c;
 
         public Form3()
         {
@@ -52,7 +52,7 @@ namespace triangl
             btn1.Location = new Point(10, 260);
             btn1.Size = new Size(100, 70);
             btn1.Click += Btn1_Click;
-            btn1.Text = "Тупоугольный";
+            btn1.Text = "Тупоyгольный";
             Controls.Add(btn1);
 
             btn2 = new Button();
@@ -103,16 +103,7 @@ namespace triangl
             txtC.Location = new Point(470, 70);
             txtC.BackColor = Color.White;
 
-            lblH = new Label();
-            lblH.Size = new Size(70, 30);
-            lblH.Location = new Point(400, 100);
-            lblH.Text = "Высота H";
-            lblH.ForeColor = Color.Black;
-            lblH.BackColor = Color.White;
 
-            txtH = new TextBox();
-            txtH.Location = new Point(470, 100);
-            txtH.BackColor = Color.White;
 
             r2 = new RadioButton();
             r2.Text = "Показать данные";
@@ -225,11 +216,11 @@ namespace triangl
         private void R1_CheckedChanged(object sender, EventArgs e)
         {
             list_box.Items.Clear();
-            Triangl triangle = new Triangl(a, b, c, h);
+            Triangl triangle = new Triangl(a, b, c);
             list_box.Items.Add("Сторона а:" + " " + triangle.outputA());
             list_box.Items.Add("Сторона b:" + " " + triangle.outputB());
             list_box.Items.Add("Сторона c:" + " " + triangle.outputC());
-            list_box.Items.Add("Высота:" + " " + triangle.HeightOfTriangle());
+            //list_box.Items.Add("Высота:" + " " + triangle.HeightOfTriangle());
             list_box.Items.Add("Периметр:" + " " + Convert.ToString(triangle.Perimeter()));
             list_box.Items.Add("ПолуПериметр:" + " " + Convert.ToString(triangle.HalfPerimeter()));
             list_box.Items.Add("Площадь:" + " " + Convert.ToString(triangle.Surface()));
@@ -282,36 +273,33 @@ namespace triangl
                 a = Convert.ToDouble(txtA.Text);
                 b = Convert.ToDouble(txtB.Text);
                 c = Convert.ToDouble(txtC.Text);
-                h = 0;
             }
             else
             {
-                if (txtA.Text == "" || txtB.Text == "" || txtC.Text == "" || txtH.Text == "")
+                if (txtA.Text == "" || txtB.Text == "" || txtC.Text == "")
                 {
                     a = 0;
                     b = 0;
                     c = 0;
-                    h = 0;
                 }
                 else
                 {
                     a = Convert.ToDouble(txtA.Text);
                     b = Convert.ToDouble(txtB.Text);
                     c = Convert.ToDouble(txtC.Text);
-                    h = Convert.ToDouble(txtH.Text);
                 }
 
             }
 
 
-            Triangl triangle = new Triangl(a, b, c, h);
+            Triangl triangle = new Triangl(a, b, c);
             list_box.Items.Add("Сторона а:" + " " + triangle.outputA());
             list_box.Items.Add("Сторона b:" + " " + triangle.outputB());
             list_box.Items.Add("Сторона c:" + " " + triangle.outputC());
-            if (triangle.outputH() == "0")
-            {
-                list_box.Items.Add("Высота:" + " " + triangle.HeightOfTriangle());
-            }
+            //if (triangle.outputH() == "0")
+            //{
+              //  list_box.Items.Add("Высота:" + " " + triangle.HeightOfTriangle());
+            //}
             list_box.Items.Add("Периметр:" + " " + Convert.ToString(triangle.Perimeter()));
             list_box.Items.Add("ПолуПериметр:" + " " + Convert.ToString(triangle.HalfPerimeter()));
             list_box.Items.Add("Площадь:" + " " + Convert.ToString(triangle.Surface()));
