@@ -20,7 +20,7 @@ namespace triangl
         Label lblA, lblB, lblC, lblH;
         TextBox txtA, txtB, txtC, txtH;
         PictureBox pic1, pic2, pic3, pic4;
-        RadioButton r1,r2,r3;
+        RadioButton r1,r2,r3, r4;
         Graphics gp;
         CheckBox box_lbl, box_btn;
         Pen p = new Pen(Brushes.Red, 2);
@@ -114,29 +114,29 @@ namespace triangl
             txtH.Location = new Point(470, 100);
             txtH.BackColor = Color.White;
 
-            box_btn = new CheckBox();
-            box_btn.Text = "(a,b,c,h)Высота есть";
-            box_btn.Location = new Point(250, 400);
-            box_btn.Size = new Size(200, 20);
-            box_btn.CheckedChanged += Box_btn_CheckedChanged;
-
-            box_lbl = new CheckBox();
-            box_lbl.Text = "(a,b,c) Найти высоту";
-            box_lbl.Location = new Point(200, 400);
-            box_lbl.Size = new Size(200, 20);
-            box_lbl.CheckedChanged += Box_lbl_CheckedChanged;
+            r1 = new RadioButton();
+            r1.Location = new Point(450, 200);
+            r1.Text = "Найти высоту";
+            r1.CheckedChanged += r1_CheckedChanged;
+            Controls.Add(r1);
 
             r2 = new RadioButton();
-            r2.Text = "Показать данные";
-            r2.Location = new Point(20, 190);
-            r2.CheckedChanged += new EventHandler(Radiobuttons_Changed);
+            r2.Location = new Point(450, 220);
+            r2.Text = "Высота есть";
+            r2.CheckedChanged += r2_CheckedChanged;
             Controls.Add(r2);
 
             r3 = new RadioButton();
-            r3.Text = "Скрыть данные";
-            r3.Location = new Point(20, 210);
+            r3.Text = "Показать данные";
+            r3.Location = new Point(20, 190);
             r3.CheckedChanged += new EventHandler(Radiobuttons_Changed);
             Controls.Add(r3);
+
+            r4 = new RadioButton();
+            r4.Text = "Скрыть данные";
+            r4.Location = new Point(20, 210);
+            r4.CheckedChanged += new EventHandler(Radiobuttons_Changed);
+            Controls.Add(r4);
 
             pic1 = new PictureBox();
             pic1.Image = Image.FromFile("tup.png");
@@ -174,8 +174,6 @@ namespace triangl
 
             gp = panel1.CreateGraphics();
 
-            box_lbl = new CheckBox();
-            box_lbl.CheckedChanged += Box_lbl_CheckedChanged;
 
             MainMenu menu = new MainMenu();
             BackColor = Color.White;
@@ -233,22 +231,19 @@ namespace triangl
             gp.DrawLine(p, p3, p1);
         }
 
-
-        private void R1_CheckedChanged(object sender, EventArgs e)
+        private void r1_CheckedChanged(object sender, EventArgs e)
         {
-            list_box.Items.Clear();
-            Triangl triangle = new Triangl(a, b, c, h);
-            list_box.Items.Add("Сторона а:" + " " + triangle.outputA());
-            list_box.Items.Add("Сторона b:" + " " + triangle.outputB());
-            list_box.Items.Add("Сторона c:" + " " + triangle.outputC());
-            list_box.Items.Add("Высота:" + " " + triangle.HeightOfTriangle());
-            list_box.Items.Add("Периметр:" + " " + Convert.ToString(triangle.Perimeter()));
-            list_box.Items.Add("ПолуПериметр:" + " " + Convert.ToString(triangle.HalfPerimeter()));
-            list_box.Items.Add("Площадь:" + " " + Convert.ToString(triangle.Surface()));
-            if (triangle.ExistTriangle) { list_box.Items.Add("Существует?  Существует"); }
-            else list_box.Items.Add("Существует?  Не существует");
-            list_box.Items.Add("Спецификатор:" + " " + triangle.TypeOfTriangle());
+            lblH.Visible = false;
+            txtH.Visible = false;
+            txtH.Text = "";
         }
+
+        private void r2_CheckedChanged(object sender, EventArgs e)
+        {
+            lblH.Visible = true;
+            txtH.Visible = true;
+        }
+
         private void Radiobuttons_Changed(object sender, EventArgs e)
         {
             if (r3.Checked)
@@ -286,10 +281,8 @@ namespace triangl
 
         private void Btn_Click(object sender, EventArgs e)
         {
-            btn.BackColor = Color.Transparent;
-            list_box.Items.Clear();
 
-            if (box_lbl.Checked)
+            if (r1.Checked)
             {
                 a = Convert.ToDouble(txtA.Text);
                 b = Convert.ToDouble(txtB.Text);
@@ -312,7 +305,6 @@ namespace triangl
                     c = Convert.ToDouble(txtC.Text);
                     h = Convert.ToDouble(txtH.Text);
                 }
-
             }
 
 
