@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -230,7 +230,21 @@ namespace Triangle
                 {
                     return answer = "";
                 }
-
+            }
+        }
+        public bool ExisTriangle // свойство позволяющее установить, существует ли треугольник с задаными сторонами
+        {
+            get
+            {
+                if ((a < b + c) && (b < a + c) && (c < a + b))
+                {
+                    return true;
+                } //сумма 2 сторон должна быть больше третьей
+                else if (a < 0 || b < 0 || c < 0)
+                {
+                    return false;
+                }
+                else return false;
             }
         }
         public string ImageType()
